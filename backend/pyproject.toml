@@ -8,6 +8,7 @@ dependencies = [
     "djangorestframework>=3.15",
     "psycopg[binary]>=3.2",
     "dj-database-url>=2.2",
+    "django-cors-headers>=4.4",
 ]
 
 [project.optional-dependencies]
@@ -17,6 +18,9 @@ dev = [
     "pytest-django>=4.8",
     "pytest-env>=1.1",
 ]
+
+[tool.setuptools.packages.find]
+include = ["config*", "apps*"]
 
 [tool.ruff]
 line-length = 100
