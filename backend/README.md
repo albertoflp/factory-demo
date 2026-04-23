@@ -35,6 +35,20 @@ python manage.py runserver
 Health check: `curl http://localhost:8000/api/health/` →
 `{"status": "ok", "db": "ok"}`.
 
+## Create an admin user
+
+After running migrations, create a superuser to log in to the Django admin and
+to exercise the `/api/auth/login/` endpoint:
+
+```bash
+cd backend
+source .venv/bin/activate
+python manage.py createsuperuser
+```
+
+You can then sign in at `http://localhost:8000/admin/` or POST to
+`/api/auth/login/` with `{"username": "...", "password": "..."}`.
+
 ## Test
 
 ```bash
