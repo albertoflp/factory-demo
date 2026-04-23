@@ -1,0 +1,31 @@
+[project]
+name = "factory-demo-backend"
+version = "0.1.0"
+description = "Django + DRF backend for factory-demo"
+requires-python = ">=3.13"
+dependencies = [
+    "django>=5.0,<6.0",
+    "djangorestframework>=3.15",
+    "psycopg[binary]>=3.2",
+    "dj-database-url>=2.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.6",
+    "pytest>=8.0",
+    "pytest-django>=4.8",
+    "pytest-env>=1.1",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+extend-exclude = [".venv", "migrations"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings"
+python_files = ["test_*.py"]
